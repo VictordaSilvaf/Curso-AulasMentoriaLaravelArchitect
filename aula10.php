@@ -5,45 +5,23 @@
 *   Interfaces
 */
 
-class Bank
+interface Money
 {
-    public function __construct(public ?string $balance = '0')
-    {
-    }
+    public function getMoney();
+}
 
-    public function getBalance()
+class Bank implements Money
+{
+    public function getMoney()
     {
-        return $this->balance;
-    }
-
-    public function setBalance($balance)
-    {
-        $this->balance = $balance;
+        return 100;
     }
 }
 
-class NationalBank extends Bank
+class Broker implements Money
 {
-    public function getBalance()
+    public function getMoney()
     {
-        return 'R$ ' . $this->balance;
+        return 100;
     }
 }
-
-class InternationalBank extends Bank
-{
-    public function getBalance()
-    {
-        return 'US$ ' . $this->balance;
-    }
-}
-
-$national = new NationalBank();
-$national->setBalance('10');
-
-$international = new InternationalBank();
-$international->setBalance('10');
-
-echo "Nacional: " . $national->getBalance();
-echo "\n";
-echo "Internacional: " . $international->getBalance();

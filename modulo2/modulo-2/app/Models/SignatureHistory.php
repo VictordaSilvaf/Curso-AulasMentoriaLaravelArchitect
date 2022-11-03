@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class SignatureHistory extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'signature_id',
+        'old_status',
+        'old_plan_id',
+        'last_updated_at'
+    ];
+
+    protected $casts = [
+        'old_status' => SignatureStatus::class,
+    ];
 }

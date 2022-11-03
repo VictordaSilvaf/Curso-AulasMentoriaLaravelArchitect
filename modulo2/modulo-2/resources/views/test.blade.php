@@ -7,5 +7,6 @@
         <li>Nome: {{ $name }}</li>
         <li>Documento: {{ $document }}</li>
         <li>Status da assinatura {{ $status }}</li>
+        <li>Bebida: {{ $params }}</li>
     </ol>
 </x-app-layout>

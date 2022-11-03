@@ -24,4 +24,4 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/teste', [SignatureController::class, 'index'])->middleware(['auth', 'verified'])->name('test');
+Route::get('/teste/{drink}', [SignatureController::class, 'index'])->middleware(['auth', 'verified'])->name('test');

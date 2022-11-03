@@ -25,4 +25,4 @@ require __DIR__ . '/auth.php';
 
 Route::get('/teste', function () {
     return view('test');
-});
+})->middleware(['auth', 'verified'])->name('test');

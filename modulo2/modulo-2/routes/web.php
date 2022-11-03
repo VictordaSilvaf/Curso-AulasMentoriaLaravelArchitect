@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SignatureController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,4 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/teste', function () {
-    return view('test');
-})->middleware(['auth', 'verified'])->name('test');
+Route::get('/teste', [SignatureController::class, 'index'])->middleware(['auth', 'verified'])->name('test');

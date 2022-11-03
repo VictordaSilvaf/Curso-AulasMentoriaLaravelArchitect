@@ -1,0 +1,68 @@
+{
+    "name": "tongedev/rfb-document",
+    "description": "Pacote para validar/gerar/formatar RG e CPF",
+    "keywords": [
+        "php",
+        "document",
+        "cpf",
+        "cnpj",
+        "generate",
+        "validation",
+        "format"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Benevides",
+            "email": "eltonfelixbenevides@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tongedev\\RfbDocument\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tongedev\\RfbDocument\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "infection/infection": "^0.26.5",
+        "orchestra/testbench": "^7.1",
+        "pestphp/pest": "^1.21",
+        "friendsofphp/php-cs-fixer": "^3.6"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tongedev\\RfbDocument\\RfbDocumentServiceProvider"
+            ],
+            "aliases": {
+                "CPF": "Tongedev\\RfbDocument\\Facade\\CPF",
+                "CNPJ": "Tongedev\\RfbDocument\\Facade\\CNPJ"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "infection/extension-installer": true
+        }
+    },
+    "scripts": {
+        "lint": "php-cs-fixer fix -v",
+        "test:lint": "php-cs-fixer fix -vv --dry-run",
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ]
+    }
+}

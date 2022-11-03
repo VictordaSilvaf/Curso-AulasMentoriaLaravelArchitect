@@ -1,0 +1,5 @@
+vendor/
+tg
+.phpunit.result.cache
+docker/
+.php-cs-fixer.cache
